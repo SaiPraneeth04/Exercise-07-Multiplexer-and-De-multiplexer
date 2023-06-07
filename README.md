@@ -67,11 +67,35 @@ Program for flipflops  and verify its truth table in quartus using Verilog progr
 Developed by: Sai Praneeth K
 RegisterNumber:  212222230067
 */
-
-
-
-
-
+## Multiplexer
+```python
+module mul(d0,d1,d2,d3,a,b,q);
+input d0,d1,d2,d3,a,b;
+output q;
+wire l,m,n,o,abar,bbar;
+not(abar,a);
+not(bbar,b);
+and(l,d0,abar,bbar);
+and(m,d1,abar,b);
+and(n,d2,a,bbar);
+and(o,d3,a,b);
+or(q,l,m,n,o);
+endmodule
+```
+## Demultiplexer
+```python
+module demul(d,a,b,y0,y1,y2,y3);
+input d,a,b;
+output y0,y1,y2,y3;
+wire abar,bbar;
+not(abar,a);
+not(bbar,b);
+and(y0,d,abar,bbar);
+and(y1,abar,b,d);
+and(y2,a,bbar,d);
+and(y3,a,b,d);
+endmodule
+```
 
 ### RTL LOGIC  
 ## Multiplexer
